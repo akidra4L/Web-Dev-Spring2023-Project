@@ -1,6 +1,10 @@
-# Web-Dev-Spring2023-Project
+# Chef.in [Web-Dev, Project]
 
-This is Project for Web-Development Course, Spring 2023
+Chef.in this is an exciting new website that brings together a rich culinary experience in one convenient place. Regardless of whether you are an experienced professional in the kitchen or just starting to cook, you will find what you like in Chef.in
+
+## Technologies
+- Angular
+- Django
 
 ## Members
 - Gubayev Alikhan
