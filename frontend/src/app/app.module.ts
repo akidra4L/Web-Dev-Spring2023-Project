@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,12 +13,13 @@ import { FooterComponent } from './layouts/footer/footer.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
