@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './layouts/main/main.component';
 
 const routes: Routes = [
-  { path: 'home', component: MainComponent },
+  { path: '**', component: MainComponent },
 ];
 
 @NgModule({
