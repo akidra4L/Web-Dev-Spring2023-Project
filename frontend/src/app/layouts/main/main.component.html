@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <h2>Popular categories</h2>
+
+  <div class="wrapper-list">
+    <div class="wrapper-list-item" *ngFor="let category of categories">
+      <a href="">
+        <img src="{{ category.imgURL }}" alt="" />
+        <p>{{ category.title }}</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="wrapper-info">
+    <h1>Free Access Anywhere</h1>
+    <p>
+      wherever and whenever you are can <br />
+      easily access recipes and cooking <br />
+      videos for free. no need to hesitate <br />
+      anymore to learn to cook, start <br />
+      from now wherever you are.
+    </p>
+  </div>
+</div>
