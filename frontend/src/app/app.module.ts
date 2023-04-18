@@ -10,6 +10,12 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { ButtonComponent } from './components/button/button.component';
 import { InputComponent } from './components/input/input.component';
 import { MainComponent } from './layouts/main/main.component';
+import { RecipesPageComponent } from './pages/recipes-page/recipes-page.component';
+import { RecipePageComponent } from './pages/recipe-page/recipe-page.component';
+import { MasterClassesPageComponent } from './pages/master-classes-page/master-classes-page.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,13 +25,20 @@ import { MainComponent } from './layouts/main/main.component';
     ButtonComponent,
     InputComponent,
     MainComponent,
+    RecipesPageComponent,
+    RecipePageComponent,
+    MasterClassesPageComponent,
+    LoginPageComponent,
+    SignupPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
