@@ -1,1 +1,33 @@
-<p>login-page works!</p>
+<h2 mat-dialog-title>Log In</h2>
+<div mat-dialog-content class="wrapper">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput formControlName="login" placeholder="Login" />
+      <mat-error *ngIf="loginForm.controls.login.hasError('required')"
+        >Login is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="password"
+        placeholder="Password"
+        type="password"
+      />
+      <mat-error *ngIf="loginForm.controls.password.hasError('required')"
+        >Password is required</mat-error
+      >
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions class="btns">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button
+    mat-button
+    color="primary"
+    [disabled]="!loginForm.valid"
+    (click)="onSubmit()"
+  >
+    Login
+  </button>
+</div>
