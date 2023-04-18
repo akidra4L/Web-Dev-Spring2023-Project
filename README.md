@@ -12,3 +12,28 @@ Chef.in this is an exciting new website that brings together a rich culinary exp
 - Gubayev Alikhan
 - Dauytova Aliya
 - Muldashov Salamat
+
+## 💻 Wanna run on your machine?
+
+1. Clone the project
+    ```sh
+    git clone https://github.com/akidra4L/chef.in.git
+    ```
+
+2. Install the dependencies for Client 
+    ```sh
+    cd frontend
+    npm install
+    ```
+
+3. Start the development server
+    ```sh
+    cd backend
+    python manage.py runserver
+    ```
+
+4. Start the development client
+    ```sh
+    cd frontend
+    ng serve
+    ```
