@@ -7,9 +7,4 @@ import { Component, Input } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() label!: string;
-  @Input() action!: () => void;
-
-  onClick(): void {
-    this.action();
-  }
 }

@@ -2,7 +2,7 @@
 <div mat-dialog-content class="wrapper">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
-      <input matInput formControlName="login" placeholder="Login" />
+      <input matInput formControlName="login" placeholder="Login" value="{{ username }}" />
       <mat-error *ngIf="loginForm.controls.login.hasError('required')"
         >Login is required</mat-error
       >
