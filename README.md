@@ -3,13 +3,11 @@
 Chef.in this is an exciting new website that brings together a rich culinary experience in one convenient place. Regardless of whether you are an experienced professional in the kitchen or just starting to cook, you will find what you like in Chef.in
 
 <div align="center">
-<h3 align="center">Arbuz.kz Форма заказа</h3>
+<h3 align="center">Chef.in</h3>
   <a href="https://github.com/akidra4L/chef.in">
     <img src="assets/chef.in-logo.png" alt="Logo" width="100%">
   </a>
 </div>
-
-![Image](./assets/chef.in-logo.png)
 
 ## Technologies
 
