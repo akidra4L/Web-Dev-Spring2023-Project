@@ -10,8 +10,26 @@
       <a class="link" routerLink="/recipes">Recipes</a>
       <a class="link" routerLink="/master-classes">Master classes</a>
 
-      <app-button label="Log in" mat-button (click)="openLoginDialog()"></app-button>
-      <app-button class="signup" label="Sign up" routerLink="signup"></app-button>
+      <app-button
+        label="Log in"
+        mat-button
+        (click)="openLoginDialog()"
+        *ngIf="!isLogged"
+      ></app-button>
+
+      <app-button
+        class="signup"
+        label="Sign up"
+        (click)="openSignUpDialog()"
+        *ngIf="!isLogged"
+      ></app-button>
+
+      <app-button
+        class="signup"
+        label="Logout"
+        (click)="handleLogout()"
+        *ngIf="isLogged"
+      ></app-button>
     </div>
   </div>
 

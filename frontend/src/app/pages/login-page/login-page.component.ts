@@ -36,11 +36,6 @@ export class LoginPageComponent {
     })
   }
 
-  logout(): void {
-    localStorage.removeItem('token');
-    this.isLogged = false;
-  }
-
   onSubmit(): void {
     if (this.loginForm.valid) {
       if (this.loginForm.value.login && this.loginForm.value.password) {

@@ -1,1 +1,56 @@
-<p>signup-page works!</p>
+<h2 mat-dialog-title>Sign up</h2>
+
+<div mat-dialog-content class="wrapper">
+  <form [formGroup]="signUpForm">
+    <mat-form-field>
+      <input matInput formControlName="username" placeholder="Username" />
+      <mat-error *ngIf="signUpForm?.get('username')?.hasError('required')">
+        Username is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput formControlName="first_name" placeholder="First Name" />
+      <mat-error *ngIf="signUpForm?.get('first_name')?.hasError('required')">
+        First Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput formControlName="last_name" placeholder="Last Name" />
+      <mat-error *ngIf="signUpForm?.get('last_name')?.hasError('required')">
+        Last Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput formControlName="email" placeholder="Email" />
+      <mat-error *ngIf="signUpForm?.get('email')?.hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="signUpForm?.get('email')?.hasError('email')">
+        Invalid email address
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="password"
+        placeholder="Password"
+        type="password"
+      />
+      <mat-error *ngIf="signUpForm?.get('password')?.hasError('required')">
+        Password is required
+      </mat-error>
+      <mat-error *ngIf="signUpForm?.get('password')?.hasError('minlength')">
+        Password must be at least 3 characters long
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+
+<mat-dialog-actions class="btns">
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button mat-button color="primary" (click)="onSubmit()">Sign up</button>
+</mat-dialog-actions>

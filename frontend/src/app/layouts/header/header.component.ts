@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { LoginPageComponent } from 'src/app/pages/login-page/login-page.component'; 
+import { SignupPageComponent } from 'src/app/pages/signup-page/signup-page.component';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,7 @@ export class HeaderComponent implements OnInit {
   username: string = "";
   password: string = "";
   dialogRef!: MatDialogRef<LoginPageComponent>;
+  dialogSignUp!: MatDialogRef<SignupPageComponent>;
 
   constructor(public dialog: MatDialog) { }
 
@@ -22,7 +24,7 @@ export class HeaderComponent implements OnInit {
     if (token) {
       this.isLogged = true;
     }
-  }
+  };
 
   openLoginDialog(): void {
     this.dialogRef = this.dialog.open(LoginPageComponent, {
@@ -39,5 +41,16 @@ export class HeaderComponent implements OnInit {
       this.username = data.username;
       this.password = data.password;
     })
+  };
+
+  openSignUpDialog(): void {
+    this.dialogSignUp = this.dialog.open(SignupPageComponent, {
+      width: '500px',
+    });
   }
+
+  handleLogout(): void {
+    localStorage.removeItem('token');
+    this.isLogged = false;
+  };
 }
