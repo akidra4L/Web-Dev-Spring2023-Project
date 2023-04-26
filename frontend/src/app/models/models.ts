@@ -1,8 +1,3 @@
-export interface ICategory {
-    imgURL: string;
-    title: string;
-};
-
 export interface AuthToken {
     token: string;
 };
@@ -15,11 +10,44 @@ export interface SignUpToken {
     email: string;
 };
 
+export enum RecipeCategory {
+    salad = "Salad", 
+    burger = "Burger", 
+    pizza = "Pizza", 
+    soup = "Soup", 
+    meat = "Meat", 
+    pasta = "Pasta",
+};
+
+export interface ICategoriesList {
+    id: number;
+    category: RecipeCategory;
+}
+
+export const CategoriesList: ICategoriesList[] = [
+    { id: 1, category: RecipeCategory.salad },
+    { id: 2, category: RecipeCategory.burger },
+    { id: 3, category: RecipeCategory.pizza },
+    { id: 4, category: RecipeCategory.soup },
+    { id: 5, category: RecipeCategory.meat },
+    { id: 6, category: RecipeCategory.pasta },
+];
+
+export interface ICategory {
+    id: number;
+    category_id: number;
+    imgURL: string;
+    title: string;
+    category: RecipeCategory;
+};
+
 export interface IRecipe {
     id: number;
+    category_id: number;
     name: string;
     image: string;
     description: string;
+    category: RecipeCategory;
 };
 
 export interface IMasterClass {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { getCategories } from './generator';
 import { ICategory } from 'src/app/models/models';
@@ -11,4 +12,10 @@ import { ICategory } from 'src/app/models/models';
 })
 export class MainComponent {
   categories: ICategory[] = getCategories;
+
+  constructor(private router: Router) { }
+
+  onCategoryClick(id: number): void {
+    this.router.navigate(['/recipes', 'category', id]);
+  }
 }

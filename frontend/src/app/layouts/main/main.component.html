@@ -3,7 +3,7 @@
 
   <div class="wrapper-list">
     <div class="wrapper-list-item" *ngFor="let category of categories">
-      <a href="">
+      <a (click)="onCategoryClick(category.id)">
         <img src="{{ category.imgURL }}" alt="" />
         <p>{{ category.title }}</p>
       </a>

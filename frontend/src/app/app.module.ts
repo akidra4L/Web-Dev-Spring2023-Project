@@ -28,6 +28,7 @@ import { MasterClassesPageComponent } from './pages/master-classes-page/master-c
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { RecipesCategoryComponent } from './pages/recipes-category/recipes-category.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
     LoginPageComponent,
     SignupPageComponent,
     ErrorPageComponent,
+    RecipesCategoryComponent,
   ],
   imports: [
     BrowserModule,
