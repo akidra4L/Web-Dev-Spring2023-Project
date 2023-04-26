@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { LoginPageComponent } from 'src/app/pages/login-page/login-page.component'; 
 import { SignupPageComponent } from 'src/app/pages/signup-page/signup-page.component';
+import { SearchService } from 'src/app/services/search.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -15,10 +16,13 @@ export class HeaderComponent implements OnInit {
   isLogged: boolean = false;
   username: string = "";
   password: string = "";
+  
+  searchQuery: string = "";
+
   dialogRef!: MatDialogRef<LoginPageComponent>;
   dialogSignUp!: MatDialogRef<SignupPageComponent>;
 
-  constructor(public dialog: MatDialog, private userService: UserService) { }
+  constructor(public dialog: MatDialog, private userService: UserService, private searchService: SearchService) { }
 
   ngOnInit(): void {
     const token = localStorage.getItem('token');
@@ -26,6 +30,10 @@ export class HeaderComponent implements OnInit {
       this.isLogged = true;
     }
   };
+
+  onSearchInput(): void {    
+    this.searchService.search(this.searchQuery);
+  }
 
   openLoginDialog(): void {
     this.dialogRef = this.dialog.open(LoginPageComponent, {

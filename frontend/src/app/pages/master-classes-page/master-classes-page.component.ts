@@ -6,17 +6,25 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ErrorPageComponent } from '../error-page/error-page.component';
 import { UserService } from 'src/app/services/user.service';
 import { IMasterClass } from 'src/app/models/models';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-master-classes-page',
   templateUrl: './master-classes-page.component.html',
   styleUrls: ['./master-classes-page.component.scss']
 })
-export class MasterClassesPageComponent {
-  masterClasses: IMasterClass[];
+export class MasterClassesPageComponent implements OnInit {
+  masterClasses: IMasterClass[] = masterClasses;
+  masterClassesCopy: IMasterClass[] = this.masterClasses;
 
-  constructor(private authService: AuthService, private userService: UserService, public dialog: MatDialog) { 
-    this.masterClasses = masterClasses;
+  constructor(private authService: AuthService, private userService: UserService, public dialog: MatDialog, private searchService: SearchService) { }
+  
+  ngOnInit(): void {
+    this.searchService.searchEvent.subscribe((query: string) => {
+      this.masterClasses = this.masterClassesCopy.filter((masterClass: IMasterClass) => 
+        masterClass.name.toLowerCase().includes(query.toLowerCase())
+      );
+    });
   }
 
   getUserList(names: string[]): string {
