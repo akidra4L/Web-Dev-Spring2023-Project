@@ -20,4 +20,9 @@ export class AuthService {
   signup(username: string, first_name: string, last_name: string, email: string, password: string): Observable<SignUpToken> {
     return this.client.post<SignUpToken>(`${this.BASE_URL}/sign-up/`, { username, first_name, last_name, email, password });
   }
+
+  isLoggedIn(): boolean {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
 }

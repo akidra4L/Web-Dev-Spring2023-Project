@@ -9,6 +9,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +26,7 @@ import { RecipePageComponent } from './pages/recipe-page/recipe-page.component';
 import { MasterClassesPageComponent } from './pages/master-classes-page/master-classes-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,7 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
     MasterClassesPageComponent,
     LoginPageComponent,
     SignupPageComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +54,8 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatGridListModule,
+    MatCardModule,
   ],
   providers: [
     {
