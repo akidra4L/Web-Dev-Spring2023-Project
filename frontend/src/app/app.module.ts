@@ -29,6 +29,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { RecipesCategoryComponent } from './pages/recipes-category/recipes-category.component';
+import { RecipeItemComponent } from './pages/recipe-item/recipe-item.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { RecipesCategoryComponent } from './pages/recipes-category/recipes-categ
     SignupPageComponent,
     ErrorPageComponent,
     RecipesCategoryComponent,
+    RecipeItemComponent,
   ],
   imports: [
     BrowserModule,

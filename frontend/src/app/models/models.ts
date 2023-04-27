@@ -13,10 +13,9 @@ export interface SignUpToken {
 export enum RecipeCategory {
     salad = "Salad", 
     burger = "Burger", 
-    pizza = "Pizza", 
+    italian = "Italian", 
     soup = "Soup", 
     meat = "Meat", 
-    pasta = "Pasta",
 };
 
 export interface ICategoriesList {
@@ -27,10 +26,9 @@ export interface ICategoriesList {
 export const CategoriesList: ICategoriesList[] = [
     { id: 1, category: RecipeCategory.salad },
     { id: 2, category: RecipeCategory.burger },
-    { id: 3, category: RecipeCategory.pizza },
+    { id: 3, category: RecipeCategory.italian },
     { id: 4, category: RecipeCategory.soup },
     { id: 5, category: RecipeCategory.meat },
-    { id: 6, category: RecipeCategory.pasta },
 ];
 
 export interface ICategory {
@@ -48,6 +46,7 @@ export interface IRecipe {
     image: string;
     description: string;
     category: RecipeCategory;
+    steps: string[];
 };
 
 export interface IMasterClass {

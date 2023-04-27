@@ -1,0 +1,33 @@
+mat-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+h3 {
+    font-weight: 600;
+}
+
+h4 {
+    color: lightslategray;
+    font-size: 12px;
+}
+
+img {
+    width: 120px;
+    height: 120px;
+}
+
+p {
+    color: black;
+    font-size: 18px;
+    padding-top: 12px;
+}
+
+mat-card-content {
+    h3 {
+        margin: 0;
+        margin-top: 16px;
+    }
+}

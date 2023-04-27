@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+import { IRecipe } from 'src/app/models/models';
 
 @Component({
   selector: 'app-recipe-page',
@@ -6,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./recipe-page.component.scss']
 })
 export class RecipePageComponent {
-
+  constructor(@Inject(MAT_DIALOG_DATA) public data: IRecipe) {}
 }
