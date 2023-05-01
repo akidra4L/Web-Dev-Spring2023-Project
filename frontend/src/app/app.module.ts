@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { RecipesCategoryComponent } from './pages/recipes-category/recipes-category.component';
 import { RecipeItemComponent } from './pages/recipe-item/recipe-item.component';
+import { CreateRecipeComponent } from './pages/create-recipe/create-recipe.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import { RecipeItemComponent } from './pages/recipe-item/recipe-item.component';
     ErrorPageComponent,
     RecipesCategoryComponent,
     RecipeItemComponent,
+    CreateRecipeComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ import { RecipeItemComponent } from './pages/recipe-item/recipe-item.component';
     MatInputModule,
     MatGridListModule,
     MatCardModule,
+    MatSelectModule,
     FormsModule,
   ],
   providers: [

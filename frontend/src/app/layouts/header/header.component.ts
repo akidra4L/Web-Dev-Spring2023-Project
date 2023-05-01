@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { CreateRecipeComponent } from 'src/app/pages/create-recipe/create-recipe.component';
 
 import { LoginPageComponent } from 'src/app/pages/login-page/login-page.component'; 
 import { SignupPageComponent } from 'src/app/pages/signup-page/signup-page.component';
@@ -21,6 +22,7 @@ export class HeaderComponent implements OnInit {
 
   dialogRef!: MatDialogRef<LoginPageComponent>;
   dialogSignUp!: MatDialogRef<SignupPageComponent>;
+  dialogCreateRecipe!: MatDialogRef<CreateRecipeComponent>;
 
   constructor(public dialog: MatDialog, private userService: UserService, private searchService: SearchService) { }
 
@@ -64,4 +66,10 @@ export class HeaderComponent implements OnInit {
     this.isLogged = false;
     this.userService.username = '';
   };
+
+  handleCreateRecipe(): void{
+    this.dialogCreateRecipe = this.dialog.open(CreateRecipeComponent, {
+      width: '500px',
+    })
+  }
 }
