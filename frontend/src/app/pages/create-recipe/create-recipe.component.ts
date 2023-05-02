@@ -22,7 +22,7 @@ export class CreateRecipeComponent implements OnInit {
     steps: new FormControl('', Validators.required),
   });
 
-  constructor(private recipeService: RecipeService, @Inject(MAT_DIALOG_DATA) public data: ICategoriesList, private dialogRef: MatDialogRef<CreateRecipeComponent>,) { }
+  constructor(private recipeService: RecipeService, @Inject(MAT_DIALOG_DATA) public data: ICategoriesList, private dialogRef: MatDialogRef<CreateRecipeComponent>) { }
 
   ngOnInit(): void {
     this.recipeService.getCategories().subscribe(categories => {

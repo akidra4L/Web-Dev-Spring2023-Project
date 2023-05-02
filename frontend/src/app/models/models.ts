@@ -52,7 +52,7 @@ export interface IRecipe {
 export interface IMasterClass {
     id: number;
     name: string;
-    date: Date;
+    date: string;
     duration: number;
     location: string;
     description: string,

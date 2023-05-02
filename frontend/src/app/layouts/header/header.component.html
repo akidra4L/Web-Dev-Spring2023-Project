@@ -18,6 +18,12 @@
         *ngIf="isLogged"
       ></app-button>
 
+      <app-button
+        class="createMasterClass"
+        label="Create Master Class"
+        (click)="handleCreateMasterClass()"
+        *ngIf="isLogged"
+      ></app-button>
 
       <app-button
         label="Log in"

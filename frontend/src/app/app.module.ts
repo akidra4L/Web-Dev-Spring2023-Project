@@ -32,6 +32,7 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { RecipesCategoryComponent } from './pages/recipes-category/recipes-category.component';
 import { RecipeItemComponent } from './pages/recipe-item/recipe-item.component';
 import { CreateRecipeComponent } from './pages/create-recipe/create-recipe.component';
+import { CreateMasterClassComponent } from './pages/create-master-class/create-master-class.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { CreateRecipeComponent } from './pages/create-recipe/create-recipe.compo
     RecipesCategoryComponent,
     RecipeItemComponent,
     CreateRecipeComponent,
+    CreateMasterClassComponent,
   ],
   imports: [
     BrowserModule,
