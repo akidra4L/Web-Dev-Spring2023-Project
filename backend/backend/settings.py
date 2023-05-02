@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     
     'recipes',
     'user',
+    'masterclass'
 ]
 
 REST_FRAMEWORK = {

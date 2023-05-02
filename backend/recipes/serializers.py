@@ -12,7 +12,7 @@ class RecipeSerializer(serializers.Serializer):
     image = serializers.ImageField(required=False)
     owner = serializers.PrimaryKeyRelatedField(read_only=True)
     category_id = serializers.PrimaryKeyRelatedField(read_only = True)
-    category = Category.title
+    category_title = serializers.CharField(source='category.title', read_only=True)
 
     
     def create(self, validated_data):
