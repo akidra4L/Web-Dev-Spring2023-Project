@@ -41,8 +41,7 @@ export class CreateMasterClassComponent {
       const price = formData.price
       const maxAttendees = formData.maxAttendees;
 
-      const newMasterClass : IMasterClass = {
-        id : 1,
+      const newMasterClass : any = {
         name : name!,
         date: date!,
         duration : duration!,
@@ -53,7 +52,6 @@ export class CreateMasterClassComponent {
         maxAttendees : maxAttendees!,
         attendees : []
       }
-
 
       this.masterClassService.createMasterClass(newMasterClass).subscribe(
         (response : any) => {
