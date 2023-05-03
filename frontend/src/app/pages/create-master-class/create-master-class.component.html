@@ -3,76 +3,124 @@
 <div mat-dialog-content class="wrapper">
   <form [formGroup]="createMasterClassForm">
     <mat-form-field>
-      <input matInput formControlName="id" placeholder="Id of the master class" type="number" />
-      <mat-error *ngIf="createMasterClassForm?.get('id')?.hasError('required')">
-        ID is required
-      </mat-error>
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput formControlName="name" placeholder="Name" [(ngModel)]="createMasterClassForm.value.name" />
-      <mat-error *ngIf="createMasterClassForm?.get('name')?.hasError('required')">
+      <input
+        matInput
+        formControlName="name"
+        placeholder="Name"
+        [(ngModel)]="createMasterClassForm.value.name"
+      />
+      <mat-error
+        *ngIf="createMasterClassForm?.get('name')?.hasError('required')"
+      >
         Name is required
       </mat-error>
     </mat-form-field>
 
     <mat-form-field>
-        <input matInput formControlName="date" placeholder="Date" [(ngModel)]="createMasterClassForm.value.date" type="date" />
-        <mat-error *ngIf="createMasterClassForm?.get('date')?.hasError('required')">
-          Date is required
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field>
-        <input matInput formControlName="duration" placeholder="Duration" [(ngModel)]="createMasterClassForm.value.duration" type="number" />
-        <mat-error *ngIf="createMasterClassForm?.get('duration')?.hasError('required')">
-          Duration is required
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field>
-        <input matInput formControlName="location" placeholder="Location" [(ngModel)]="createMasterClassForm.value.location" />
-        <mat-error *ngIf="createMasterClassForm?.get('location')?.hasError('required')">
-          Location is required
-        </mat-error>
-      </mat-form-field>
-
-      <mat-form-field>
-        <input matInput formControlName="description" placeholder="Description" [(ngModel)]="createMasterClassForm.value.description" />
-        <mat-error *ngIf="createMasterClassForm?.get('description')?.hasError('required')">
-          Description is required
-        </mat-error>
-      </mat-form-field>
+      <input
+        matInput
+        formControlName="date"
+        placeholder="Date"
+        [(ngModel)]="createMasterClassForm.value.date"
+        type="date"
+      />
+      <mat-error
+        *ngIf="createMasterClassForm?.get('date')?.hasError('required')"
+      >
+        Date is required
+      </mat-error>
+    </mat-form-field>
 
     <mat-form-field>
-      <input matInput formControlName="image" placeholder="image" [(ngModel)]="createMasterClassForm.value.image" />
-      <mat-error *ngIf="createMasterClassForm?.get('image')?.hasError('required')">
+      <input
+        matInput
+        formControlName="duration"
+        placeholder="Duration"
+        [(ngModel)]="createMasterClassForm.value.duration"
+        type="number"
+      />
+      <mat-error
+        *ngIf="createMasterClassForm?.get('duration')?.hasError('required')"
+      >
+        Duration is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="location"
+        placeholder="Location"
+        [(ngModel)]="createMasterClassForm.value.location"
+      />
+      <mat-error
+        *ngIf="createMasterClassForm?.get('location')?.hasError('required')"
+      >
+        Location is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="description"
+        placeholder="Description"
+        [(ngModel)]="createMasterClassForm.value.description"
+      />
+      <mat-error
+        *ngIf="createMasterClassForm?.get('description')?.hasError('required')"
+      >
+        Description is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        formControlName="image"
+        placeholder="image"
+        [(ngModel)]="createMasterClassForm.value.image"
+      />
+      <mat-error
+        *ngIf="createMasterClassForm?.get('image')?.hasError('required')"
+      >
         Image is required
       </mat-error>
     </mat-form-field>
 
     <mat-form-field>
-        <input matInput formControlName="price" placeholder="Price" [(ngModel)]="createMasterClassForm.value.price" type="number" />
-        <mat-error *ngIf="createMasterClassForm?.get('price')?.hasError('required')">
-          Price is required
-        </mat-error>
+      <input
+        matInput
+        formControlName="price"
+        placeholder="Price"
+        [(ngModel)]="createMasterClassForm.value.price"
+        type="number"
+      />
+      <mat-error
+        *ngIf="createMasterClassForm?.get('price')?.hasError('required')"
+      >
+        Price is required
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field>
-        <input matInput formControlName="maxAttendees" placeholder="MaxAttendees" [(ngModel)]="createMasterClassForm.value.maxAttendees" type="number" />
-        <mat-error *ngIf="createMasterClassForm?.get('maxAttendees')?.hasError('required')">
-          MaxAttendees is required
-        </mat-error>
+      <input
+        matInput
+        formControlName="maxAttendees"
+        placeholder="MaxAttendees"
+        [(ngModel)]="createMasterClassForm.value.maxAttendees"
+        type="number"
+      />
+      <mat-error
+        *ngIf="createMasterClassForm?.get('maxAttendees')?.hasError('required')"
+      >
+        MaxAttendees is required
+      </mat-error>
     </mat-form-field>
   </form>
 </div>
-
 
 <mat-dialog-actions class="btns">
   <button mat-button (click)="onCancelClick()">Cancel</button>
   <button mat-button color="primary" (click)="onSubmit()">Create</button>
 </mat-dialog-actions>
-
-
-
-

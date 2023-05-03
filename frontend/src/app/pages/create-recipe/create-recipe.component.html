@@ -3,13 +3,6 @@
 <div mat-dialog-content class="wrapper">
   <form [formGroup]="createRecipeForm">
     <mat-form-field>
-      <input matInput formControlName="id" placeholder="Id of the recipe" />
-      <mat-error *ngIf="createRecipeForm?.get('id')?.hasError('required')">
-        ID is required
-      </mat-error>
-    </mat-form-field>
-
-    <mat-form-field>
       <input matInput formControlName="name" placeholder="Name" [(ngModel)]="createRecipeForm.value.name" />
       <mat-error *ngIf="createRecipeForm?.get('name')?.hasError('required')">
         Name is required

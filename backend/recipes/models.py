@@ -3,14 +3,10 @@ from django.contrib.auth.models import User
 
 
 class Category(models.Model):
-    category_id = models.IntegerField()
     title = models.CharField(max_length=30)
-
-
-    def __str__(self):
-        return self.title
     
     class Meta:
+        verbose_name = 'Category'
         verbose_name_plural = 'Categories'
 
 

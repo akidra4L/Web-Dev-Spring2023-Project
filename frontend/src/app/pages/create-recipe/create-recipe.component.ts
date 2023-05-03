@@ -1,8 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+
 import { RecipeService } from 'src/app/services/recipe.service';
 import { IRecipe, ICategoriesList } from 'src/app/models/models';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-recipe-form',
@@ -14,7 +15,7 @@ export class CreateRecipeComponent implements OnInit {
   category_id !: number;
   selectedCategory: any;
   createRecipeForm = new FormGroup({
-    id: new FormControl('', Validators.required),
+    id: new FormControl(''),
     name: new FormControl('', [Validators.required]),
     image: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
@@ -40,12 +41,15 @@ export class CreateRecipeComponent implements OnInit {
       const category = formData.category
       const stepsArray = formData.steps?.split('.').map(step => step.trim());
 
-      this.recipeService.getCategoryByTitle(category).subscribe((category: ICategoriesList) =>{
+      this.recipeService.getCategoryByTitle(category!).subscribe((category: ICategoriesList) => {
         this.category_id = category.id;
-      })
+      });
+
+      console.log(this.category_id);
+      
 
       const newRecipe : IRecipe = {
-        id : parseInt(id!),
+        id : 1,
         category_id : this.category_id,
         name : name!,
         image : image!,
@@ -53,16 +57,15 @@ export class CreateRecipeComponent implements OnInit {
         category: category!,
         steps : stepsArray!
       }
-      console.log(newRecipe);
 
-      this.recipeService.createRecipe(newRecipe).subscribe(
-        (response) => {
-          console.log('Recipe created successfully!', response);
-        },
-        (error) =>{
-          console.log('Error: ', error);
-        }
-      );
+      // this.recipeService.createRecipe(newRecipe).subscribe(
+      //   (response) => {
+      //     console.log('Recipe created successfully!', response);
+      //   },
+      //   (error) =>{
+      //     console.log('Error: ', error);
+      //   }
+      // );
     }
   }
 

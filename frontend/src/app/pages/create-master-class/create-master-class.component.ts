@@ -1,8 +1,9 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { MasterclassService } from 'src/app/services/masterclass.service';
 import { IMasterClass } from 'src/app/models/models';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-create-master-class',
   templateUrl: './create-master-class.component.html',
@@ -11,7 +12,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class CreateMasterClassComponent {
 
   createMasterClassForm = new FormGroup({
-    id: new FormControl(null, Validators.required),
+    id: new FormControl(null),
     name: new FormControl('', Validators.required),
     date: new FormControl('', [Validators.required]),
     duration: new FormControl(null, [Validators.required]),
@@ -31,7 +32,6 @@ export class CreateMasterClassComponent {
   onSubmit(): void {
     if(this.createMasterClassForm.valid){
       const formData = this.createMasterClassForm.value;
-      const id = formData.id;
       const name = formData.name;
       const date = formData.date;
       const duration = formData.duration;
@@ -41,12 +41,10 @@ export class CreateMasterClassComponent {
       const price = formData.price
       const maxAttendees = formData.maxAttendees;
 
-      
-
       const newMasterClass : IMasterClass = {
-        id : parseInt(id!),
+        id : 1,
         name : name!,
-        date: new Date('2023-05-01').toISOString().slice(0, 10),
+        date: date!,
         duration : duration!,
         location : location!,
         description: description!,

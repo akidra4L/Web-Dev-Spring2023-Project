@@ -31,6 +31,8 @@ class RecipeSerializer(serializers.Serializer):
 
 
 class CategorySerializer(serializers.Serializer):
-    category_id = serializers.IntegerField()
-    title = serializers.CharField()
+    category_id = serializers.IntegerField(read_only=True)
+    title = serializers.CharField(max_length=100)
 
+    def create(self, validated_data):
+        return Category.objects.create(**validated_data)

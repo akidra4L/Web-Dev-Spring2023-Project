@@ -23,7 +23,7 @@ export class RecipeService {
     return of(filteredRecipes);
   }
 
-  getCategoryByTitle(title: any): Observable<ICategoriesList> {
+  getCategoryByTitle(title: string): Observable<ICategoriesList> {
     return this.client.get<ICategoriesList>(`${this.BASE_URL}categories/${title}`);
   }
 
