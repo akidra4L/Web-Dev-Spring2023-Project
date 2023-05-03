@@ -29,6 +29,7 @@ class RecipeCreateAPIView(APIView):
             category = Category.objects.get(pk=request.data.get('category_id'))
         except Category.DoesNotExist as e:
             return Response(status=status.HTTP_404_NOT_FOUND)
+        
         serializer = RecipeSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(category = category)

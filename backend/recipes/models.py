@@ -11,6 +11,7 @@ class Category(models.Model):
 
 
 class Recipe(models.Model):
+    username = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     description = models.TextField()
     steps = models.TextField()

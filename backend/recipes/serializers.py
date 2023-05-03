@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404
 from .models import Recipe, Category
 
 class RecipeSerializer(serializers.Serializer):
+    username = serializers.CharField()
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(max_length=100)
     description = serializers.CharField()
@@ -12,7 +13,6 @@ class RecipeSerializer(serializers.Serializer):
     image = serializers.CharField(required=False)
     category_id = serializers.PrimaryKeyRelatedField(read_only = True)
     category_title = serializers.CharField(source='category.title', read_only=True)
-
     
     def create(self, validated_data):
         recipe = Recipe.objects.create(**validated_data)

@@ -71,6 +71,9 @@ export class HeaderComponent implements OnInit {
   handleCreateRecipe(): void{
     this.dialogCreateRecipe = this.dialog.open(CreateRecipeComponent, {
       width: '500px',
+      data: {
+        username: this.username,
+      }
     })
   }
 

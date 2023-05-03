@@ -22,13 +22,13 @@ export class RecipeService {
 
   constructor(private client: HttpClient) { }
 
+  getRecipes(): Observable<IRecipe[]> {
+    return this.client.get<IRecipe[]>(`${this.BASE_URL}/recipes/`);
+  }
+
   getRecipesByCategory(id: number): Observable<IRecipe[]> {
     const filteredRecipes = this.recipes.filter((recipe: IRecipe) => recipe.category_id === id);
     return of(filteredRecipes);
-  }
-
-  getCategoryById(id: number): Observable<any> {
-    return this.client.get<any>(`${this.BASE_URL}/categories/${id}`);
   }
 
   getCategoryByID(id: number): Observable<any> {
@@ -39,9 +39,7 @@ export class RecipeService {
     return this.client.get<ICategoriesList[]>(`${this.BASE_URL}/categories`);
   }
 
-  createRecipe(recipe: IRecipe): Observable<IRecipe> {
-    console.log(headers);
-    
+  createRecipe(recipe: IRecipe): Observable<IRecipe> {    
     return this.client.post<IRecipe>(`${this.BASE_URL}/recipes/create/`, recipe, {headers});
   }
 }

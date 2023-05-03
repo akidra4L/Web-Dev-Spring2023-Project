@@ -11,6 +11,8 @@ import { IRecipe, ICategoriesList } from 'src/app/models/models';
   styleUrls: ['./create-recipe.component.scss']
 })
 export class CreateRecipeComponent implements OnInit {
+  username: string = '';
+
   categories: ICategoriesList[] = [];
   category_id !: number;
   selectedCategory: any;
@@ -23,9 +25,10 @@ export class CreateRecipeComponent implements OnInit {
     steps: new FormControl('', Validators.required),
   });
 
-  constructor(private recipeService: RecipeService, @Inject(MAT_DIALOG_DATA) public data: ICategoriesList, private dialogRef: MatDialogRef<CreateRecipeComponent>) { }
+  constructor(private recipeService: RecipeService, @Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<CreateRecipeComponent>) { }
 
   ngOnInit(): void {
+    this.username = this.data.username;
     this.recipeService.getCategories().subscribe(categories => {
       this.categories = categories;
     });
@@ -44,14 +47,13 @@ export class CreateRecipeComponent implements OnInit {
         this.category_id = data.id;
 
         const newRecipe: any = {
+          username: localStorage.getItem('username'),
           name: name!,
           description: description!,
           image : image!,
           steps: stepsArray!,
           category_id : this.category_id,
         }
-  
-        console.log(newRecipe);
   
         this.recipeService.createRecipe(newRecipe).subscribe(
           (response) => {
