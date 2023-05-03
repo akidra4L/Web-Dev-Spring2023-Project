@@ -34,38 +34,34 @@ export class CreateRecipeComponent implements OnInit {
   onSubmit(): void {
     if(this.createRecipeForm.valid){
       const formData = this.createRecipeForm.value;
-      const id = formData.id;
       const name = formData.name;
       const image = formData.image;
       const description = formData.description;
       const category = formData.category
-      const stepsArray = formData.steps?.split('.').map(step => step.trim());
+      const stepsArray = formData.steps
 
-      this.recipeService.getCategoryByTitle(category!).subscribe((category: ICategoriesList) => {
-        this.category_id = category.id;
+      this.recipeService.getCategoryByID(Number(category!)).subscribe(data => {
+        this.category_id = data.id;
+
+        const newRecipe: any = {
+          name: name!,
+          description: description!,
+          image : image!,
+          steps: stepsArray!,
+          category_id : this.category_id,
+        }
+  
+        console.log(newRecipe);
+  
+        this.recipeService.createRecipe(newRecipe).subscribe(
+          (response) => {
+            console.log('Recipe created successfully!', response);
+          },
+          (error) =>{
+            console.log('Error: ', error);
+          }
+        );
       });
-
-      console.log(this.category_id);
-      
-
-      const newRecipe : IRecipe = {
-        id : 1,
-        category_id : this.category_id,
-        name : name!,
-        image : image!,
-        description: description!,
-        category: category!,
-        steps : stepsArray!
-      }
-
-      // this.recipeService.createRecipe(newRecipe).subscribe(
-      //   (response) => {
-      //     console.log('Recipe created successfully!', response);
-      //   },
-      //   (error) =>{
-      //     console.log('Error: ', error);
-      //   }
-      // );
     }
   }
 

@@ -1,5 +1,5 @@
 export interface AuthToken {
-    token: string;
+    access: string;
 };
 
 export interface SignUpToken {
@@ -45,8 +45,7 @@ export interface IRecipe {
     name: string;
     image: string;
     description: string;
-    category: RecipeCategory;
-    steps: string[];
+    steps: string;
 };
 
 export interface IMasterClass {

@@ -5,6 +5,8 @@ from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import TokenAuthentication
 
 from .serializers import RecipeSerializer, CategorySerializer
 from .models import Recipe, Category
@@ -23,11 +25,13 @@ from .models import Recipe, Category
 # Create
 class RecipeCreateAPIView(APIView):
     def post(self, request):
-        category_title = request.data.get('category_title')
-        category = get_object_or_404(Category, title = category_title)
+        try:
+            category = Category.objects.get(pk=request.data.get('category_id'))
+        except Category.DoesNotExist as e:
+            return Response(status=status.HTTP_404_NOT_FOUND)
         serializer = RecipeSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save(owner=request.user, category = category)
+            serializer.save(category = category)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
@@ -62,17 +66,25 @@ class recipeDetailAPIView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 # get category by his title
-@api_view(['GET'])
-def getCategoryByName(request,  name):
-    categories = Category.objects.all()
-    print(categories)
-    category_cur = None
-    for category in categories:
-        if category.title == name:
-            category_cur = category
-    print(category_cur) 
-    serializer = CategorySerializer(category_cur)
-    return Response(serializer.data, status=status.HTTP_200_OK)
+@api_view(['GET', 'PUT', 'DELETE'])
+def getCategoryByName(request, id):
+    try:
+        category = Category.objects.get(pk=id)
+    except Category.DoesNotExist as e:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    if request.method == 'GET':
+        serializer = CategorySerializer(category)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    elif request.method == 'PUT':
+        serializer = CategorySerializer(category, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        category.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class CategoryAPIView(APIView):

@@ -30,7 +30,9 @@ export class LoginPageComponent {
 
   login(): void {
     this.loginService.login(this.username, this.password).subscribe((data) => {
-      localStorage.setItem('token', data.token);
+      console.log(data);
+      
+      localStorage.setItem('token', data.access);
       this.isLogged = true;
       this.loginSuccess.emit({ isLogged: this.isLogged, username: this.username, password: this.password });
     })

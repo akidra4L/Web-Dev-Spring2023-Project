@@ -14,8 +14,7 @@ class Recipe(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     steps = models.TextField()
-    image = models.ImageField(blank=True, null=True)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recipes')
+    image = models.CharField(max_length=255, blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='recipes')
 
 

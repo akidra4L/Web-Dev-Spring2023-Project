@@ -9,8 +9,7 @@ class RecipeSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=100)
     description = serializers.CharField()
     steps = serializers.CharField()
-    image = serializers.ImageField(required=False)
-    owner = serializers.PrimaryKeyRelatedField(read_only=True)
+    image = serializers.CharField(required=False)
     category_id = serializers.PrimaryKeyRelatedField(read_only = True)
     category_title = serializers.CharField(source='category.title', read_only=True)
 
@@ -31,7 +30,7 @@ class RecipeSerializer(serializers.Serializer):
 
 
 class CategorySerializer(serializers.Serializer):
-    category_id = serializers.IntegerField(read_only=True)
+    id = serializers.IntegerField(read_only=True)
     title = serializers.CharField(max_length=100)
 
     def create(self, validated_data):

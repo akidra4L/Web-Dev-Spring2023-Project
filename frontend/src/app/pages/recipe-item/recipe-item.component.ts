@@ -16,8 +16,7 @@ export class RecipeItemComponent {
     name: '',
     image: '',
     description: '',
-    category: RecipeCategory.burger,
-    steps: [],
+    steps: "",
   };
 
   constructor(private dialog: MatDialog) { }

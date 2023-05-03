@@ -28,7 +28,6 @@ export class RecipesCategoryComponent implements OnInit {
             recipe.name.toLowerCase().includes(query.toLowerCase())
           );
         });
-        this.category_name = data[0].category;
       });
     }
   }
