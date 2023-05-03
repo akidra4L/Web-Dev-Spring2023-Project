@@ -21,7 +21,7 @@
             <p>{{ masterClass.description }}</p>
           </mat-card-content>
           <mat-card-content class="wrapper-list">
-            <p><b>Participants:</b> {{ getUserList(masterClass.attendees) }}</p>
+            <p><b>Participants:</b> {{ masterClass.participants }} / {{ masterClass.maxAttendees }}</p>
           </mat-card-content>
           <mat-card-actions>
             <button

@@ -49,7 +49,7 @@ def masterclass_detail(request, id):
         return Response(serializer.data,status=status.HTTP_200_OK)
 
     elif request.method == 'PUT':
-        serializer = masterClassSerializer(masterclass, data=request.data)
+        serializer = masterClassSerializer(masterclass, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data,status=status.HTTP_200_OK)

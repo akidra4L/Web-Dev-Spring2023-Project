@@ -11,6 +11,6 @@ class masterClass(models.Model):
     image = models.CharField(max_length=1000, blank=True, null=True)
     price = models.IntegerField()
     maxAttendees = models.IntegerField()
-    participants = models.ManyToManyField(User, blank=True)
+    participants = models.IntegerField(blank=True)
 
 

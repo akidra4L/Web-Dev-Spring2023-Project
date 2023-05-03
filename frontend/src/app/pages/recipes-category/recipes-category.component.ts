@@ -20,16 +20,17 @@ export class RecipesCategoryComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');     
     if (id) {
-      this.recipeService.getRecipesByCategory(Number(id)).subscribe((data) => {
+      this.recipeService.getRecipesByCategory(Number(id)).subscribe((data: any[]) => {
+        this.category_name = data[0].category_title;
         this.recipes = data;
-        this.recipes_copy = this.recipes;
+        this.recipes_copy = data;
         this.searchService.searchEvent.subscribe((query: string) => {
           this.recipes = this.recipes_copy.filter((recipe: IRecipe) => 
             recipe.name.toLowerCase().includes(query.toLowerCase())
           );
         });
       });
-    }
+    }    
   }
 
 }

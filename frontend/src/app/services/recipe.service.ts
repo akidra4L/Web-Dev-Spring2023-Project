@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, map, pipe } from 'rxjs';
 
 import { ICategoriesList, IRecipe } from '../models/models';
 import { recipesList } from '../pages/recipes-page/generator';
@@ -16,9 +16,6 @@ const headers = {
 export class RecipeService {
 
   BASE_URL = "http://127.0.0.1:8000"
-  private categories = getCategories;
-  private recipes = recipesList;
-
 
   constructor(private client: HttpClient) { }
 
@@ -26,9 +23,12 @@ export class RecipeService {
     return this.client.get<IRecipe[]>(`${this.BASE_URL}/recipes/`);
   }
 
-  getRecipesByCategory(id: number): Observable<IRecipe[]> {
-    const filteredRecipes = this.recipes.filter((recipe: IRecipe) => recipe.category_id === id);
-    return of(filteredRecipes);
+  getRecipesByCategory(id: number): Observable<IRecipe[]> {    
+    return this.getRecipes().pipe(
+      map((recipes: IRecipe[]) => {
+        return recipes.filter((recipe: IRecipe) => recipe.category_id === id);
+      })
+    );
   }
 
   getCategoryByID(id: number): Observable<any> {
