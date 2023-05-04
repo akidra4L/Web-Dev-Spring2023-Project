@@ -50,7 +50,7 @@ export class CreateMasterClassComponent {
         image : image!,
         price : parseInt(price!),
         maxAttendees : maxAttendees!,
-        attendees : []
+        participants : 0,
       }
 
       this.masterClassService.createMasterClass(newMasterClass).subscribe(
@@ -61,6 +61,8 @@ export class CreateMasterClassComponent {
           console.log('Error: ', error);
         }
       );
+
+      this.dialogRef.close();
     }
   }
 

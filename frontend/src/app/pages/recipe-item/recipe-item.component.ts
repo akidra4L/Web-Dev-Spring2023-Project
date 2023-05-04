@@ -28,4 +28,8 @@ export class RecipeItemComponent {
       data: this.recipe,
     });
   }
+
+  truncateDescription(description: string): string {
+    return description.length > 25 ? description.substring(0, 25) + "..." : description; 
+  }
 }

@@ -6,7 +6,7 @@
       <h3>{{ recipe.name }}</h3>
       <h4>{{ recipe.category_title }}</h4>
     </div>
-    <p>{{ recipe.description }}</p>
+    <p id="description">{{ truncateDescription(recipe.description) }}</p>
   </mat-card-content>
 
   <mat-card-actions>

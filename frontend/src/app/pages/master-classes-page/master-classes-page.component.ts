@@ -53,10 +53,8 @@ export class MasterClassesPageComponent implements OnInit {
     const day = date.getDate();
     const month = monthsOfYear[date.getMonth()];
     const year = date.getFullYear();
-    const hours = date.getHours();
-    const minutes = date.getMinutes().toString().padStart(2, '0');
     
-    return `${weekday}, ${day} ${month} ${year} ${hours}:${minutes}`;
+    return `${weekday}, ${day} ${month} ${year}`;
   }
 
   onRegisterClick(id: number): void {
