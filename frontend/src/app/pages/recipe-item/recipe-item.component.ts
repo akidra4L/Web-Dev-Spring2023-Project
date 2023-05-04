@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
-import { IRecipe, RecipeCategory } from 'src/app/models/models';
 import { RecipePageComponent } from '../recipe-page/recipe-page.component';
 
 @Component({
@@ -25,7 +24,7 @@ export class RecipeItemComponent {
 
   openRecipeDialog(): void {
     const dialogRef = this.dialog.open(RecipePageComponent, {
-      width: '600px',
+      width: '700px',
       data: this.recipe,
     });
   }

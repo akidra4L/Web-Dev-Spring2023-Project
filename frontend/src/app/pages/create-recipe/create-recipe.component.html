@@ -30,8 +30,19 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field>
+    <!-- <mat-form-field>
       <input matInput formControlName="category" placeholder="Category" [(ngModel)]="createRecipeForm.value.category" />
+      <mat-error *ngIf="isValidCategory(createRecipeForm.value.category)">
+        Possible categories: Salad, Italian, Meat, Burger, Soup
+      </mat-error>
+    </mat-form-field> -->
+
+    <mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category" [(value)]="selectedCategory">
+        <mat-option *ngFor="let category of categoriesList" [value]="category.id">{{ category.title }}</mat-option>
+      </mat-select>
+
       <mat-error *ngIf="isValidCategory(createRecipeForm.value.category)">
         Possible categories: Salad, Italian, Meat, Burger, Soup
       </mat-error>

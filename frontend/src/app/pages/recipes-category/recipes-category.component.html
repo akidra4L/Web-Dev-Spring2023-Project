@@ -7,21 +7,7 @@
     </div>
     <mat-grid-list cols="4" rowHeight="1:1">
       <mat-grid-tile *ngFor="let recipe of recipes" class="wrapper-list-item">
-        <mat-card style="width: 300px; height: 300px">
-          <img mat-card-image [src]="recipe.image" alt="Recipe Image" />
-
-          <mat-card-content>
-            <div class="wrapper-list-item-title">
-              <h3>{{ recipe.name }}</h3>
-              <!-- <h4>{{ recipe.category }}</h4> -->
-            </div>
-            <p>{{ recipe.description }}</p>
-          </mat-card-content>
-
-          <mat-card-actions>
-            <button mat-button color="primary">View Recipe</button>
-          </mat-card-actions>
-        </mat-card>
+        <app-recipe-item [recipe]="recipe"></app-recipe-item>
       </mat-grid-tile>
     </mat-grid-list>
   </div>

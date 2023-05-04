@@ -3,7 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 import { RecipeService } from 'src/app/services/recipe.service';
-import { IRecipe, ICategoriesList } from 'src/app/models/models';
+import { IRecipe, ICategoriesList, ICategory } from 'src/app/models/models';
+
+import { getCategories } from 'src/app/layouts/main/generator';
 
 @Component({
   selector: 'app-recipe-form',
@@ -13,8 +15,11 @@ import { IRecipe, ICategoriesList } from 'src/app/models/models';
 export class CreateRecipeComponent implements OnInit {
   username: string = '';
 
+  category!: ICategory;
+  categoriesList: ICategory[] = [];
   categories: ICategoriesList[] = [];
   category_id !: number;
+
   selectedCategory: any;
   createRecipeForm = new FormGroup({
     id: new FormControl(''),
@@ -29,13 +34,11 @@ export class CreateRecipeComponent implements OnInit {
 
   ngOnInit(): void {
     this.username = this.data.username;
-    this.recipeService.getCategories().subscribe(categories => {
-      this.categories = categories;
-    });
+    this.categoriesList = getCategories;
   }
 
   onSubmit(): void {
-    if(this.createRecipeForm.valid){
+    if(this.createRecipeForm.valid) {
       const formData = this.createRecipeForm.value;
       const name = formData.name;
       const image = formData.image;
@@ -63,6 +66,8 @@ export class CreateRecipeComponent implements OnInit {
             console.log('Error: ', error);
           }
         );
+
+        this.dialogRef.close();
       });
     }
   }

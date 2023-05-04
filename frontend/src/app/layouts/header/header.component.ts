@@ -70,7 +70,8 @@ export class HeaderComponent implements OnInit {
 
   handleCreateRecipe(): void{
     this.dialogCreateRecipe = this.dialog.open(CreateRecipeComponent, {
-      width: '500px',
+      width: '600px',
+      height: '600px',
       data: {
         username: this.username,
       }
@@ -79,7 +80,7 @@ export class HeaderComponent implements OnInit {
 
   handleCreateMasterClass(): void{
     this.dialogCreateMasterClass = this.dialog.open(CreateMasterClassComponent, {
-      width: '500px',
+      width: '600px',
     })
   }
 }
