@@ -1,0 +1,18 @@
+Master Class:
+Name: Sushi Making
+Duration: 60 minutes
+Location: Tokyo, Japan
+Description: Take your love for sushi to the next level by learning how to make it yourself. Our master class is taught by a professional sushi chef in Tokyo, the birthplace of sushi. You'll learn the techniques and tools needed to create your own delicious sushi rolls, nigiri, and sashimi. Plus, you'll get to taste some of the freshest fish in the world.
+Price: $300
+Image: https://www.finedininglovers.com/sites/g/files/xknfdk626/files/styles/article_1200_800_fallback/public/Original_16236_jiro-ono.png?itok=VUB4pTlU
+
+
+Recipe:
+Name: Caprese Salad
+Image: https://natashaskitchen.com/wp-content/uploads/2019/08/Caprese-Salad-6.jpg
+Description: Caprese Salad is a classic Italian dish made with ripe tomatoes, fresh mozzarella cheese, and fresh basil. It is typically served as a starter or as a side dish and is perfect for summertime when tomatoes are at their peak. The salad is simple, light, and refreshing, making it a perfect addition to any meal.
+Steps: Slice fresh tomatoes and mozzarella cheese into even pieces.
+Arrange tomato and cheese slices on a plate in an alternating pattern.
+Drizzle extra-virgin olive oil and balsamic vinegar over the salad.
+Sprinkle salt and freshly ground black pepper over the salad.
+Garnish with fresh basil leaves.
