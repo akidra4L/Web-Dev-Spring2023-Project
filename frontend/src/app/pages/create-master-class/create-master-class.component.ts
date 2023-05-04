@@ -25,7 +25,7 @@ export class CreateMasterClassComponent {
 
 
 
-  constructor(private masterClassService: MasterclassService, @Inject(MAT_DIALOG_DATA) public data: IMasterClass, private dialogRef: MatDialogRef<CreateMasterClassComponent>) { }
+  constructor(private masterClassService: MasterclassService, private dialogRef: MatDialogRef<CreateMasterClassComponent>) { }
 
 
 
